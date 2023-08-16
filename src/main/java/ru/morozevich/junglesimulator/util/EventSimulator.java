@@ -23,10 +23,26 @@ public class EventSimulator {
         bonobo.setEnergy(energy + 10);
         int health = bonobo.getHealth();
         bonobo.setHealth(health + 5);
+        checkHealth(bonobo);
+        checkEnergy(bonobo);
         printStats(bonobo);
     }
 
     private void printStats(Bonobo bonobo) {
         System.out.println("Текущее здоровье: " + bonobo.getHealth() + " Текущая энергия: " + bonobo.getEnergy());
+    }
+
+    private void checkHealth(Bonobo bonobo) {
+        int health = bonobo.getHealth();
+        if (health > 100) {
+            bonobo.setHealth(100);
+        }
+    }
+
+    private void checkEnergy(Bonobo bonobo) {
+        int energy = bonobo.getEnergy();
+        if (energy > 100) {
+            bonobo.setEnergy(100);
+        }
     }
 }
