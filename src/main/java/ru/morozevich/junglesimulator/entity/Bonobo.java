@@ -3,7 +3,8 @@ package ru.morozevich.junglesimulator.entity;
 public class Bonobo {
     private int health = 100;
     private int energy = 100;
-    private final double nutritionCoeff = 1.8;
+    private final double nutritionFruitCoeff = 1.8;
+    private final double nutritionMeatCoeff = 0.8;
 
     public int getHealth() {
         return health;
@@ -21,7 +22,11 @@ public class Bonobo {
         this.energy = energy;
     }
 
-    public double getNutritionCoeff() {
-        return nutritionCoeff;
+    public double getNutritionFruitCoeff() {
+        return nutritionFruitCoeff;
+    }
+
+    public double getNutritionMeatCoeff() {
+        return nutritionMeatCoeff;
     }
 }
