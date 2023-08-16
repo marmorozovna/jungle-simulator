@@ -14,7 +14,7 @@ public class EventSimulator {
 // бонобо ловит колобуса - 10 энергии - 5 %;
 // бонобо падает с ветки - 5 энергии - 5 здоровья - 2 %
     public void startSimulation(Bonobo bonobo) {
-        meetMumEvent(bonobo);
+        meetChimpanzeeEvent(bonobo);
     }
 
     private void sleepEvent(Bonobo bonobo) {
@@ -34,6 +34,17 @@ public class EventSimulator {
         bonobo.setEnergy(energy + 5);
         int health = bonobo.getHealth();
         bonobo.setHealth(health + 10);
+        checkHealth(bonobo);
+        checkEnergy(bonobo);
+        printStats(bonobo);
+    }
+
+    private void meetChimpanzeeEvent(Bonobo bonobo) {
+        System.out.println("Бонобо встречает шимпанзе.");
+        int energy = bonobo.getEnergy();
+        bonobo.setEnergy(energy - 10);
+        int health = bonobo.getHealth();
+        bonobo.setHealth(health - 10);
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
