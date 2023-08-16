@@ -14,8 +14,8 @@ public class EventSimulator {
 // бонобо ловит колобуса - 10 энергии - 5 %;
 // бонобо падает с ветки - 5 энергии - 5 здоровья - 2 %
     public void startSimulation(Bonobo bonobo) {
-        moveEvent(bonobo);
-        meetScientistsEvent(bonobo);
+        eatFigsEvent(bonobo);
+        eatDatesEvent(bonobo);
     }
 
     private void sleepEvent(Bonobo bonobo) {
@@ -65,6 +65,28 @@ public class EventSimulator {
         bonobo.setEnergy(energy - 10);
         int health = bonobo.getHealth();
         bonobo.setHealth(health + 10);
+        checkHealth(bonobo);
+        checkEnergy(bonobo);
+        printStats(bonobo);
+    }
+
+    private void eatFigsEvent(Bonobo bonobo) {
+        System.out.println("Бонобо ест инжир.");
+        int energy = bonobo.getEnergy();
+        bonobo.setEnergy(energy - 3);
+        int health = bonobo.getHealth();
+        bonobo.setHealth(health + (int) (3* bonobo.getNutritionFruitCoeff()));
+        checkHealth(bonobo);
+        checkEnergy(bonobo);
+        printStats(bonobo);
+    }
+
+    private void eatDatesEvent(Bonobo bonobo) {
+        System.out.println("Бонобо ест финики.");
+        int energy = bonobo.getEnergy();
+        bonobo.setEnergy(energy - 2);
+        int health = bonobo.getHealth();
+        bonobo.setHealth(health + (int) (5* bonobo.getNutritionFruitCoeff()));
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
