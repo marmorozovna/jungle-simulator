@@ -3,7 +3,7 @@ package ru.morozevich.junglesimulator.util;
 import ru.morozevich.junglesimulator.entity.Bonobo;
 
 public class EventSimulator {
-    // бонобо спит +10 энергии, +5 здоровья - 20 %
+// бонобо спит +10 энергии, +5 здоровья - 20 %
 // бонобо встречает бонобо-маму + 5 энергии; + 10 здоровья - 11 %
 // бонобо встречает шимпанзе - 10 энергии, - 10 здоровья - 15 %
 // бонобо передвигается -5 энергии - 17 %
@@ -14,7 +14,7 @@ public class EventSimulator {
 // бонобо ловит колобуса - 10 энергии - 5 %;
 // бонобо падает с ветки - 5 энергии - 5 здоровья - 2 %
     public void startSimulation(Bonobo bonobo) {
-        sleepEvent(bonobo);
+        meetMumEvent(bonobo);
     }
 
     private void sleepEvent(Bonobo bonobo) {
@@ -23,6 +23,17 @@ public class EventSimulator {
         bonobo.setEnergy(energy + 10);
         int health = bonobo.getHealth();
         bonobo.setHealth(health + 5);
+        checkHealth(bonobo);
+        checkEnergy(bonobo);
+        printStats(bonobo);
+    }
+
+    private void meetMumEvent(Bonobo bonobo) {
+        System.out.println("Бонобо встречает бонобо-маму.");
+        int energy = bonobo.getEnergy();
+        bonobo.setEnergy(energy + 5);
+        int health = bonobo.getHealth();
+        bonobo.setHealth(health + 10);
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
