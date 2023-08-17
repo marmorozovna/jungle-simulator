@@ -37,10 +37,8 @@ public class EventSimulator {
 
     private void sleepEvent(Bonobo bonobo) {
         System.out.println("Бонобо спит.");
-        int energy = bonobo.getEnergy();
-        bonobo.setEnergy(energy + 10);
-        int health = bonobo.getHealth();
-        bonobo.setHealth(health + 1);
+        bonobo.setEnergy(bonobo.getEnergy() + 10);
+        bonobo.setHealth(bonobo.getHealth() + 1);
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
@@ -48,10 +46,8 @@ public class EventSimulator {
 
     private void meetMumEvent(Bonobo bonobo) {
         System.out.println("Бонобо встречает бонобо-маму.");
-        int energy = bonobo.getEnergy();
-        bonobo.setEnergy(energy + 7);
-        int health = bonobo.getHealth();
-        bonobo.setHealth(health + 3);
+        bonobo.setEnergy(bonobo.getEnergy() + 7);
+        bonobo.setHealth(bonobo.getHealth() + 3);
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
@@ -59,10 +55,8 @@ public class EventSimulator {
 
     private void meetChimpanzeeEvent(Bonobo bonobo) {
         System.out.println("Бонобо встречает шимпанзе.");
-        int energy = bonobo.getEnergy();
-        bonobo.setEnergy(energy - 10);
-        int health = bonobo.getHealth();
-        bonobo.setHealth(health - 45);
+        bonobo.setEnergy(bonobo.getEnergy() - 10);
+        bonobo.setHealth(bonobo.getHealth() - 45);
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
@@ -70,8 +64,7 @@ public class EventSimulator {
 
     private void moveEvent(Bonobo bonobo) {
         System.out.println("Бонобо перемещается с ветки на ветку по лианам.");
-        int energy = bonobo.getEnergy();
-        bonobo.setEnergy(energy - 5);
+        bonobo.setEnergy(bonobo.getEnergy() - 5);
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
@@ -79,10 +72,8 @@ public class EventSimulator {
 
     private void meetScientistsEvent(Bonobo bonobo) {
         System.out.println("Бонобо встречает ученых.");
-        int energy = bonobo.getEnergy();
-        bonobo.setEnergy(energy - 10);
-        int health = bonobo.getHealth();
-        bonobo.setHealth(health - 5);
+        bonobo.setEnergy(bonobo.getEnergy() - 10);
+        bonobo.setHealth(bonobo.getHealth() - 5);
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
@@ -90,10 +81,8 @@ public class EventSimulator {
 
     private void eatFigsEvent(Bonobo bonobo) {
         System.out.println("Бонобо ест инжир.");
-        int energy = bonobo.getEnergy();
-        bonobo.setEnergy(energy - 3);
-        int health = bonobo.getHealth();
-        bonobo.setHealth(health + (int) (3 * bonobo.getNUTRITION_FRUIT_COEFF()));
+        bonobo.setEnergy(bonobo.getEnergy() - 3);
+        bonobo.setHealth(bonobo.getHealth() + (int) (3 * bonobo.getNUTRITION_FRUIT_COEFF()));
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
@@ -101,10 +90,8 @@ public class EventSimulator {
 
     private void eatDatesEvent(Bonobo bonobo) {
         System.out.println("Бонобо ест финики.");
-        int energy = bonobo.getEnergy();
-        bonobo.setEnergy(energy - 2);
-        int health = bonobo.getHealth();
-        bonobo.setHealth(health + (int) (5 * bonobo.getNUTRITION_FRUIT_COEFF()));
+        bonobo.setEnergy(bonobo.getEnergy() - 2);
+        bonobo.setHealth(bonobo.getHealth() + (int) (5 * bonobo.getNUTRITION_FRUIT_COEFF()));
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
@@ -112,10 +99,8 @@ public class EventSimulator {
 
     private void eatTermitsEvent(Bonobo bonobo) {
         System.out.println("Бонобо ест термитов.");
-        int energy = bonobo.getEnergy();
-        bonobo.setEnergy(energy - 5);
-        int health = bonobo.getHealth();
-        bonobo.setHealth(health + (int) (4 * bonobo.getNUTRITION_MEAT_COEFF()));
+        bonobo.setEnergy(bonobo.getEnergy() - 5);
+        bonobo.setHealth(bonobo.getHealth() + (int) (4 * bonobo.getNUTRITION_MEAT_COEFF()));
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
@@ -123,10 +108,8 @@ public class EventSimulator {
 
     private void catchColobusEvent(Bonobo bonobo) {
         System.out.println("Бонобо ловит колобуса.");
-        int energy = bonobo.getEnergy();
-        bonobo.setEnergy(energy - 5);
-        int health = bonobo.getHealth();
-        bonobo.setHealth(health - 5);
+        bonobo.setEnergy(bonobo.getEnergy() - 5);
+        bonobo.setHealth(bonobo.getHealth() - 5);
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
@@ -134,8 +117,7 @@ public class EventSimulator {
 
     private void fallEvent(Bonobo bonobo) {
         System.out.println("Бонобо падает. Ой, больно!");
-        int health = bonobo.getHealth();
-        bonobo.setHealth(health - 15);
+        bonobo.setHealth(bonobo.getHealth() - 15);
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
@@ -146,11 +128,10 @@ public class EventSimulator {
     }
 
     private void checkHealth(Bonobo bonobo) {
-        int health = bonobo.getHealth();
-        if (health > 100) {
+        if (bonobo.getHealth() > 100) {
             bonobo.setHealth(100);
         }
-        if (health <= 0) {
+        if (bonobo.getHealth() <= 0) {
             bonobo.setHealth(0);
             bonobo.setEnergy(bonobo.getEnergy() - 5);
             System.out.println("Бонобо ранен! Бонобо теряет энергию!");
@@ -158,11 +139,10 @@ public class EventSimulator {
     }
 
     private void checkEnergy(Bonobo bonobo) {
-        int energy = bonobo.getEnergy();
-        if (energy > 100) {
+        if (bonobo.getEnergy() > 100) {
             bonobo.setEnergy(100);
         }
-        if (energy <= 0) {
+        if (bonobo.getEnergy() <= 0) {
             bonobo.setEnergy(0);
             System.out.println("Бонобо мертв!");
         }
