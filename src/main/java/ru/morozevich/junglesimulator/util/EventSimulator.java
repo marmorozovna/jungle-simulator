@@ -27,13 +27,18 @@ public class EventSimulator {
             } else {
                 fallEvent(bonobo);
             }
+            try {
+            Thread.sleep(1000);
+            } catch (InterruptedException e) {
+               throw new RuntimeException();
+            }
         }
     }
 
     private void sleepEvent(Bonobo bonobo) {
         System.out.println("Бонобо спит.");
         int energy = bonobo.getEnergy();
-        bonobo.setEnergy(energy + 20);
+        bonobo.setEnergy(energy + 10);
         int health = bonobo.getHealth();
         bonobo.setHealth(health + 5);
         checkHealth(bonobo);
