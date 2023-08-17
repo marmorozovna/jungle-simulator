@@ -28,9 +28,9 @@ public class EventSimulator {
                 fallEvent(bonobo);
             }
             try {
-            Thread.sleep(1000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
-               throw new RuntimeException();
+                throw new RuntimeException();
             }
         }
     }
@@ -49,9 +49,9 @@ public class EventSimulator {
     private void meetMumEvent(Bonobo bonobo) {
         System.out.println("Бонобо встречает бонобо-маму.");
         int energy = bonobo.getEnergy();
-        bonobo.setEnergy(energy + 10);
+        bonobo.setEnergy(energy + 7);
         int health = bonobo.getHealth();
-        bonobo.setHealth(health + 10);
+        bonobo.setHealth(health + 3);
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
