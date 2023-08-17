@@ -3,22 +3,30 @@ package ru.morozevich.junglesimulator.util;
 import ru.morozevich.junglesimulator.entity.Bonobo;
 
 public class EventSimulator {
-    // бонобо спит +20 энергии, +5 здоровья - 20 %
-// бонобо встречает бонобо-маму + 10 энергии; + 10 здоровья - 11 %
-// бонобо встречает шимпанзе - 10 энергии, - 20 здоровья - 15 %
-// бонобо передвигается -5 энергии - 17 %
-// бонобо встречает ученых - 10 энергии, + 10 здоровья - 4 %
-// бонобо ест инжир - 3 энергии + 3 здоровья - 9 %
-// бонобо ест фиги - 2 энергии + 5 здоровья - 12 %
-// бонобо есть термитов - 5 энергии + 4 здоровья - 5 %
-// бонобо ловит колобуса - 10 энергии - 5 %;
-// бонобо падает с ветки - 5 энергии - 5 здоровья - 2 %
     public void startSimulation(Bonobo bonobo) {
         while (bonobo.getEnergy() > 0) {
             int randomNum = (int) (Math.random() * 100);
-            if (randomNum < 50) {
+            if (randomNum < 20) {
+                sleepEvent(bonobo);
+            } else if (randomNum < 31) {
+                meetMumEvent(bonobo);
+            } else if (randomNum < 46) {
                 meetChimpanzeeEvent(bonobo);
-            } else fallEvent(bonobo);
+            } else if (randomNum < 63) {
+                moveEvent(bonobo);
+            } else if (randomNum < 67) {
+                meetScientistsEvent(bonobo);
+            } else if (randomNum < 76) {
+                eatFigsEvent(bonobo);
+            } else if (randomNum < 88) {
+                eatDatesEvent(bonobo);
+            } else if (randomNum < 93) {
+                eatTermitsEvent(bonobo);
+            } else if (randomNum < 98) {
+                catchColobusEvent(bonobo);
+            } else {
+                fallEvent(bonobo);
+            }
         }
     }
 
@@ -137,7 +145,7 @@ public class EventSimulator {
         }
         if (health <= 0) {
             bonobo.setHealth(0);
-            bonobo.setEnergy(bonobo.getEnergy()-5);
+            bonobo.setEnergy(bonobo.getEnergy() - 5);
             System.out.println("Бонобо ранен! Бонобо теряет энергию!");
         }
     }
