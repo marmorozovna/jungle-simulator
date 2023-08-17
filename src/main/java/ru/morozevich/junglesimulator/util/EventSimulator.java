@@ -127,8 +127,8 @@ public class EventSimulator {
 
     private void fallEvent(Bonobo bonobo) {
         System.out.println("Бонобо падает. Ой, больно!");
-        int energy = bonobo.getEnergy();
-        bonobo.setEnergy(energy - 5);
+        int health = bonobo.getHealth();
+        bonobo.setHealth(health - 10);
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
@@ -156,6 +156,7 @@ public class EventSimulator {
             bonobo.setEnergy(100);
         }
         if (energy <= 0) {
+            bonobo.setEnergy(0);
             System.out.println("Бонобо мертв!");
         }
     }
