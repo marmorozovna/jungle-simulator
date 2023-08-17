@@ -40,7 +40,7 @@ public class EventSimulator {
         int energy = bonobo.getEnergy();
         bonobo.setEnergy(energy + 10);
         int health = bonobo.getHealth();
-        bonobo.setHealth(health + 5);
+        bonobo.setHealth(health + 1);
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
@@ -62,7 +62,7 @@ public class EventSimulator {
         int energy = bonobo.getEnergy();
         bonobo.setEnergy(energy - 10);
         int health = bonobo.getHealth();
-        bonobo.setHealth(health - 20);
+        bonobo.setHealth(health - 45);
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
@@ -82,7 +82,7 @@ public class EventSimulator {
         int energy = bonobo.getEnergy();
         bonobo.setEnergy(energy - 10);
         int health = bonobo.getHealth();
-        bonobo.setHealth(health + 10);
+        bonobo.setHealth(health - 5);
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
@@ -124,7 +124,9 @@ public class EventSimulator {
     private void catchColobusEvent(Bonobo bonobo) {
         System.out.println("Бонобо ловит колобуса.");
         int energy = bonobo.getEnergy();
-        bonobo.setEnergy(energy - 10);
+        bonobo.setEnergy(energy - 5);
+        int health = bonobo.getHealth();
+        bonobo.setHealth(health - 5);
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
@@ -133,7 +135,7 @@ public class EventSimulator {
     private void fallEvent(Bonobo bonobo) {
         System.out.println("Бонобо падает. Ой, больно!");
         int health = bonobo.getHealth();
-        bonobo.setHealth(health - 10);
+        bonobo.setHealth(health - 15);
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
