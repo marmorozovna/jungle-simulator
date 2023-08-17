@@ -93,7 +93,7 @@ public class EventSimulator {
         int energy = bonobo.getEnergy();
         bonobo.setEnergy(energy - 3);
         int health = bonobo.getHealth();
-        bonobo.setHealth(health + (int) (3 * bonobo.getNutritionFruitCoeff()));
+        bonobo.setHealth(health + (int) (3 * bonobo.getNUTRITION_FRUIT_COEFF()));
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
@@ -104,7 +104,7 @@ public class EventSimulator {
         int energy = bonobo.getEnergy();
         bonobo.setEnergy(energy - 2);
         int health = bonobo.getHealth();
-        bonobo.setHealth(health + (int) (5 * bonobo.getNutritionFruitCoeff()));
+        bonobo.setHealth(health + (int) (5 * bonobo.getNUTRITION_FRUIT_COEFF()));
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
@@ -115,7 +115,7 @@ public class EventSimulator {
         int energy = bonobo.getEnergy();
         bonobo.setEnergy(energy - 5);
         int health = bonobo.getHealth();
-        bonobo.setHealth(health + (int) (4 * bonobo.getNutritionMeatCoeff()));
+        bonobo.setHealth(health + (int) (4 * bonobo.getNUTRITION_MEAT_COEFF()));
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
