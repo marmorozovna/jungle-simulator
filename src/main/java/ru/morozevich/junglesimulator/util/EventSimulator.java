@@ -27,6 +27,7 @@ public class EventSimulator {
             } else {
                 fallEvent(bonobo);
             }
+            checkPrintStats(bonobo);
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -38,72 +39,62 @@ public class EventSimulator {
     private void sleepEvent(Bonobo bonobo) {
         bonobo.setEnergy(bonobo.getEnergy() + 10);
         bonobo.setHealth(bonobo.getHealth() + 1);
-        checkAndPrintStats(bonobo);
         System.out.println("Бонобо спит.");
     }
 
     private void meetMumEvent(Bonobo bonobo) {
         bonobo.setEnergy(bonobo.getEnergy() + 7);
         bonobo.setHealth(bonobo.getHealth() + 3);
-        checkAndPrintStats(bonobo);
         System.out.println("Бонобо встречает бонобо-маму.");
     }
 
     private void meetChimpanzeeEvent(Bonobo bonobo) {
         bonobo.setEnergy(bonobo.getEnergy() - 10);
         bonobo.setHealth(bonobo.getHealth() - 45);
-        checkAndPrintStats(bonobo);
         System.out.println("Бонобо встречает шимпанзе.");
     }
 
     private void moveEvent(Bonobo bonobo) {
         bonobo.setEnergy(bonobo.getEnergy() - 5);
-        checkAndPrintStats(bonobo);
         System.out.println("Бонобо перемещается с ветки на ветку по лианам.");
     }
 
     private void meetScientistEvent(Bonobo bonobo) {
         bonobo.setEnergy(bonobo.getEnergy() - 10);
         bonobo.setHealth(bonobo.getHealth() - 5);
-        checkAndPrintStats(bonobo);
         System.out.println("Бонобо встречает ученых.");
     }
 
     private void eatFigEvent(Bonobo bonobo) {
         bonobo.setEnergy(bonobo.getEnergy() - 3);
         bonobo.setHealth(bonobo.getHealth() + (int) (3 * bonobo.getNUTRITION_FRUIT_COEFF()));
-        checkAndPrintStats(bonobo);
         System.out.println("Бонобо ест инжир.");
     }
 
     private void eatDateEvent(Bonobo bonobo) {
         bonobo.setEnergy(bonobo.getEnergy() - 2);
         bonobo.setHealth(bonobo.getHealth() + (int) (5 * bonobo.getNUTRITION_FRUIT_COEFF()));
-        checkAndPrintStats(bonobo);
         System.out.println("Бонобо ест финики.");
     }
 
     private void eatTermitEvent(Bonobo bonobo) {
         bonobo.setEnergy(bonobo.getEnergy() - 5);
         bonobo.setHealth(bonobo.getHealth() + (int) (4 * bonobo.getNUTRITION_MEAT_COEFF()));
-        checkAndPrintStats(bonobo);
         System.out.println("Бонобо ест термитов.");
     }
 
     private void catchColobusEvent(Bonobo bonobo) {
         bonobo.setEnergy(bonobo.getEnergy() - 5);
         bonobo.setHealth(bonobo.getHealth() - 5);
-        checkAndPrintStats(bonobo);
         System.out.println("Бонобо ловит колобуса.");
     }
 
     private void fallEvent(Bonobo bonobo) {
         bonobo.setHealth(bonobo.getHealth() - 15);
-        checkAndPrintStats(bonobo);
         System.out.println("Бонобо падает. Ой, больно!");
     }
 
-    private void checkAndPrintStats(Bonobo bonobo) {
+    private void checkPrintStats(Bonobo bonobo) {
         checkHealth(bonobo);
         checkEnergy(bonobo);
         printStats(bonobo);
