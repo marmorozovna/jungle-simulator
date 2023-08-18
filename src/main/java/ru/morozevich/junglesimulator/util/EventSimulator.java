@@ -4,7 +4,7 @@ import ru.morozevich.junglesimulator.entity.Bonobo;
 
 public class EventSimulator {
     public void startSimulation(Bonobo bonobo) {
-        while (bonobo.getEnergy() > 0) {
+        while (bonobo.getHealth() > 0) {
             int randomNum = (int) (Math.random() * 100);
             if (randomNum < 20) {
                 sleepEvent(bonobo);
@@ -44,13 +44,13 @@ public class EventSimulator {
 
     private void meetMumEvent(Bonobo bonobo) {
         bonobo.setEnergy(bonobo.getEnergy() + 7);
-        bonobo.setHealth(bonobo.getHealth() + 3);
+        bonobo.setHealth(bonobo.getHealth() + 7);
         System.out.println("Бонобо встречает бонобо-маму.");
     }
 
     private void meetChimpanzeeEvent(Bonobo bonobo) {
-        bonobo.setEnergy(bonobo.getEnergy() - 10);
-        bonobo.setHealth(bonobo.getHealth() - 45);
+        bonobo.setEnergy(bonobo.getEnergy() - 25);
+        bonobo.setHealth(bonobo.getHealth() - 15);
         System.out.println("Бонобо встречает шимпанзе.");
     }
 
@@ -84,19 +84,20 @@ public class EventSimulator {
     }
 
     private void catchColobusEvent(Bonobo bonobo) {
-        bonobo.setEnergy(bonobo.getEnergy() - 5);
+        bonobo.setEnergy(bonobo.getEnergy() - 10);
         bonobo.setHealth(bonobo.getHealth() - 5);
         System.out.println("Бонобо ловит колобуса.");
     }
 
     private void fallEvent(Bonobo bonobo) {
-        bonobo.setHealth(bonobo.getHealth() - 15);
+        bonobo.setHealth(bonobo.getHealth() - 10);
+        bonobo.setEnergy(bonobo.getEnergy() - 10);
         System.out.println("Бонобо падает. Ой, больно!");
     }
 
     private void checkPrintStats(Bonobo bonobo) {
-        checkHealth(bonobo);
         checkEnergy(bonobo);
+        checkHealth(bonobo);
         printStats(bonobo);
     }
 
@@ -109,8 +110,7 @@ public class EventSimulator {
             bonobo.setHealth(100);
         } else if (bonobo.getHealth() <= 0) {
             bonobo.setHealth(0);
-            bonobo.setEnergy(bonobo.getEnergy() - 5);
-            System.out.println("Бонобо ранен! Бонобо теряет энергию!");
+            System.out.println("Бонобо мертв!");
         }
     }
 
@@ -119,7 +119,8 @@ public class EventSimulator {
             bonobo.setEnergy(100);
         } else if (bonobo.getEnergy() <= 0) {
             bonobo.setEnergy(0);
-            System.out.println("Бонобо мертв!");
+            bonobo.setHealth(bonobo.getHealth()-5);
+            System.out.println("Бонобо изнеможден! Бонобо теряет здоровье!");
         }
     }
 }
