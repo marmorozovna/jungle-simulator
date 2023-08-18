@@ -107,8 +107,7 @@ public class EventSimulator {
     private void checkHealth(Bonobo bonobo) {
         if (bonobo.getHealth() > 100) {
             bonobo.setHealth(100);
-        }
-        if (bonobo.getHealth() <= 0) {
+        } else if (bonobo.getHealth() <= 0) {
             bonobo.setHealth(0);
             bonobo.setEnergy(bonobo.getEnergy() - 5);
             System.out.println("Бонобо ранен! Бонобо теряет энергию!");
@@ -118,8 +117,7 @@ public class EventSimulator {
     private void checkEnergy(Bonobo bonobo) {
         if (bonobo.getEnergy() > 100) {
             bonobo.setEnergy(100);
-        }
-        if (bonobo.getEnergy() <= 0) {
+        } else if (bonobo.getEnergy() <= 0) {
             bonobo.setEnergy(0);
             System.out.println("Бонобо мертв!");
         }
