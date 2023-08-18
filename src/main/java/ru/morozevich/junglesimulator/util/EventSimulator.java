@@ -4,7 +4,7 @@ import ru.morozevich.junglesimulator.entity.Bonobo;
 
 public class EventSimulator {
     public void startSimulation(Bonobo bonobo) {
-        while (bonobo.getHealth() > 0) {
+        while (isAlive(bonobo)) {
             int randomNum = (int) (Math.random() * 100);
             if (randomNum < 20) {
                 sleepEvent(bonobo);
@@ -34,6 +34,7 @@ public class EventSimulator {
                 throw new RuntimeException();
             }
         }
+        System.out.println("Бонобо мертв!");
     }
 
     private void sleepEvent(Bonobo bonobo) {
@@ -110,7 +111,6 @@ public class EventSimulator {
             bonobo.setHealth(100);
         } else if (bonobo.getHealth() <= 0) {
             bonobo.setHealth(0);
-            System.out.println("Бонобо мертв!");
         }
     }
 
@@ -119,8 +119,12 @@ public class EventSimulator {
             bonobo.setEnergy(100);
         } else if (bonobo.getEnergy() <= 0) {
             bonobo.setEnergy(0);
-            bonobo.setHealth(bonobo.getHealth()-5);
+            bonobo.setHealth(bonobo.getHealth() - 5);
             System.out.println("Бонобо изнеможден! Бонобо теряет здоровье!");
         }
+    }
+
+    private boolean isAlive(Bonobo bonobo) {
+        return bonobo.getHealth() > 0;
     }
 }
